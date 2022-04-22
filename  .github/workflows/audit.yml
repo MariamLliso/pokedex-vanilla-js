@@ -1,0 +1,23 @@
+name: My workflow # Name of the workflow
+on: push # Events that trigger the jobs
+
+jobs: # List of tasks
+  job-1: # id of the job
+    name: Job 1 # Name of the job
+    runs-on: ubuntu-latest # SO of the server
+    steps: # List of subtasks
+      - name: Subtask 1-1 # Name of the subtask
+        run: echo "I'm the subtask 1-1" # Command to execute
+
+      - name: Subtask 1-2 # Name of the subtask
+        run: echo "I'm the subtask 1-2" # Command to execute
+
+  job-2: # id of the job
+    name: Job 2 # Name of the job
+    runs-on: ubuntu-latest # SO of the server
+    steps: # List of subtasks
+      - name: Subtask 2-1 # Name of the subtask
+        run: echo "I'm the subtask 2-1" # Command to execute
+
+      - name: Subtask 2-2 # Name of the subtask
+        run: echo "I'm the subtask 2-2" # Command to execute
