@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "jest",
+    "test0-dev": "jest --watchAll",
     "sass": "sass public/sass:public/css",
     "sass-dev": "sass public/sass:public/css -w",
     "prepare": "husky install"
@@ -21,6 +22,7 @@
   },
   "homepage": "https://github.com/iammariamdev/202204-W3CHWE-mariam-lliso#readme",
   "devDependencies": {
+    "@babel/plugin-transform-modules-commonjs": "^7.17.9",
     "@types/jest": "^27.4.1",
     "eslint": "^8.13.0",
     "eslint-config-airbnb-base": "^15.0.0",
