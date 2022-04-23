@@ -3,4 +3,8 @@ import { pokedex } from "./constants/constants.js";
 
 const app = document.body;
 
-new AppComponent(app, "div", "app container", pokedex);
+try {
+  new AppComponent(app, "div", "app container", pokedex);
+} catch (error) {
+  throw new Error("Could not render AppComponent of index.html");
+}
