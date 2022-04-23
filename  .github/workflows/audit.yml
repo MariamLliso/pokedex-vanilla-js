@@ -1,23 +1,41 @@
-name: My workflow # Name of the workflow
-on: push # Events that trigger the jobs
+name: Audit
 
-jobs: # List of tasks
-  job-1: # id of the job
-    name: Job 1 # Name of the job
-    runs-on: ubuntu-latest # SO of the server
-    steps: # List of subtasks
-      - name: Subtask 1-1 # Name of the subtask
-        run: echo "I'm the subtask 1-1" # Command to execute
+on: push
 
-      - name: Subtask 1-2 # Name of the subtask
-        run: echo "I'm the subtask 1-2" # Command to execute
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    name: Audit
 
-  job-2: # id of the job
-    name: Job 2 # Name of the job
-    runs-on: ubuntu-latest # SO of the server
-    steps: # List of subtasks
-      - name: Subtask 2-1 # Name of the subtask
-        run: echo "I'm the subtask 2-1" # Command to execute
+    steps:
+      - name: Git checkout
+        uses: actions/checkout@v3
 
-      - name: Subtask 2-2 # Name of the subtask
-        run: echo "I'm the subtask 2-2" # Command to execute
+      - name: Check if .editorconfig exists
+        uses: andstor/file-existence-action@v1
+        with:
+          files: ".editorconfig"
+          allow_failure: true
+
+      - name: EditorConfig validation
+        uses: snow-actions/eclint@v1.0.1
+
+      - name: Ensure node_modules is ignored by Git
+        uses: dkershner6/gitignore-parser@v1
+        with:
+          must_deny: "node_modules"
+
+      - name: Install modules
+        run: npm ci
+
+      - name: ESLint validation
+        run: npx eslint --ignore-path .gitignore .
+
+      - name: Check commit message length
+        uses: gsactions/commit-message-checker@v1
+        with:
+          pattern: "^[^#].{10,74}"
+          error: "The commit message length must be between 10 and 72"
+          excludeDescription: "true" # optional: this excludes the description body of a pull request
+          excludeTitle: "true" # optional: this excludes the title of a pull request
+          checkAllCommitMessages: "true" # optional: this checks all commits associated with a pull request
