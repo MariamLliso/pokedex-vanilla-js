@@ -41,5 +41,8 @@
   },
   "jest": {
     "testEnvironment": "jsdom"
+  },
+  "dependencies": {
+    "bootstrap": "^5.1.3"
   }
 }
