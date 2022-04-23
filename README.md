@@ -26,3 +26,5 @@
 - Button
   - Renderiza un botón con un texto recibido dentro
   - Cuando el usuario haga click, llama a la función recibida
+- Component
+  - Renderiza el nodo html que se le indica en el elemento padre indicado
