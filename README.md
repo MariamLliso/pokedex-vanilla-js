@@ -1,0 +1,28 @@
+## Listado de componentes
+
+- AppComponent
+  - Muestra un header
+  - Muestra un listado de Pokemons
+- PokemonListComponent
+  - Almacena un listado de pokémons
+  - Muestra tantos PokemonComponent como pokémons haya
+  - Muestra una paginación
+- PokemonComponent
+  - Muestra el la posición en la pokédex recibido
+  - Muestra el nombre recibido
+  - Muestra la imagen recibida
+  - Muestra el componente Button
+  - Dar al componente button el texto capturar
+  - Dar al componente button la acción de abrir el detalle del pokemon
+  - Cuando el usuario hace click al componente hace la acción recibida
+- HeaderComponent
+  - Muestra un título de tipo 1 con el texto recibido dentro
+  - Muestra el munú navegación
+- TitleComponent
+  - Renderiza un título de tipo recibido
+  - Renderiza un título con el texto recibido dentro
+- NavbarComponent
+  - Muestra un botón
+- Button
+  - Renderiza un botón con un texto recibido dentro
+  - Cuando el usuario haga click, llama a la función recibida
