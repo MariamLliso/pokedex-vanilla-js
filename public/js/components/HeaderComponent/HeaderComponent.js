@@ -16,13 +16,13 @@ class HeaderComponent extends Component {
 
   render() {
     try {
-      new TitleComponent(this.element, "h1", "main-title", this.title);
+      new TitleComponent(this.element, "h1", "header__title", this.title);
     } catch (error) {
       throw new Error("Could not render HeaderComponent title");
     }
 
     try {
-      new NavbarComponent(this.element, "", this.page);
+      new NavbarComponent(this.element, "navbar", this.page);
     } catch (error) {
       throw new Error("Could not render HeaderComponent title");
     }

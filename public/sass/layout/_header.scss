@@ -2,5 +2,13 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
-  padding: 40px 0px;
+  padding: 20px 0px;
+  background: white;
+  margin-bottom: 40px;
+  border-bottom-left-radius: 20px 20px;
+  border-bottom-right-radius: 20px 20px;
+
+  &__title {
+    font-size: 3em;
+  }
 }

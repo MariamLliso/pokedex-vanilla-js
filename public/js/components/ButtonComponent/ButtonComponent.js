@@ -4,8 +4,8 @@ class ButtonComponent extends Component {
   text;
   action;
 
-  constructor(parentElement, text, action) {
-    super(parentElement, "button", "button button--select");
+  constructor(parentElement, text, className, action) {
+    super(parentElement, "button", className);
     this.text = text;
     this.action = action;
 
