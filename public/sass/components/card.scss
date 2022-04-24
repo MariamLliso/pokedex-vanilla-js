@@ -1,8 +1,10 @@
+@use "../abstracts/variables" as v;
+
 .pokemon {
   display: flex;
   flex-direction: column;
   padding: 20px;
-  background-color: white;
+  background-color: v.$white;
   border-radius: 20px;
 
   &__body {
@@ -32,9 +34,9 @@
     margin: 10px 0;
     background-image: linear-gradient(
       to right,
-      #e53935 0%,
-      #e35d5b 51%,
-      #e53935 100%
+      #d31027 0%,
+      #f15466 51%,
+      #d31027 100%
     );
     transition: 0.5s;
     background-size: 200% auto;
@@ -82,79 +84,79 @@
 }
 
 .number {
-  color: #ffffff;
-  background-color: #495057;
+  color: v.$white;
+  background-color: v.$number;
 }
 
 .steel {
-  color: #ffffff;
-  background-color: #8d99ae;
+  color: v.$white;
+  background-color: v.$steel;
 }
 .water {
-  color: #ffffff;
-  background-color: #0077b6;
+  color: v.$white;
+  background-color: v.$water;
 }
 .bug {
-  color: #333533;
-  background-color: #d9ed92;
+  color: v.$black;
+  background-color: v.$bug;
 }
 .dragon {
-  color: #ffffff;
-  background-color: #3d3195;
+  color: v.$white;
+  background-color: v.$dragon;
 }
 .electric {
-  color: #333533;
-  background-color: #ffd100;
+  color: v.$black;
+  background-color: v.$electric;
 }
 .ghost {
-  color: #ffffff;
-  background-color: #6247aa;
+  color: v.$white;
+  background-color: v.$ghost;
 }
 .fire {
-  color: #333533;
-  background-color: #f4a261;
+  color: v.$black;
+  background-color: v.$fire;
 }
 .fairy {
-  color: #333533;
-  background-color: #f9bec7;
+  color: v.$black;
+  background-color: v.$fairy;
 }
 .ice {
-  color: #333533;
-  background-color: #90e0ef;
+  color: v.$black;
+  background-color: v.$ice;
 }
 .fighting {
-  color: #ffffff;
-  background-color: #ce4257;
+  color: v.$white;
+  background-color: v.$fighting;
 }
 .normal {
-  color: #333533;
-  background-color: #e5e5e5;
+  color: v.$black;
+  background-color: v.$normal;
 }
 .grass {
-  color: #ffffff;
-  background-color: #6a994e;
+  color: v.$white;
+  background-color: v.$grass;
 }
 .psychic {
-  color: #ffffff;
-  background-color: #e05780;
+  color: v.$white;
+  background-color: v.$psychic;
 }
 .rock {
-  color: #333533;
-  background-color: #bfab67;
+  color: v.$black;
+  background-color: v.$rock;
 }
 .dark {
-  color: #ffffff;
-  background-color: #54442b;
+  color: v.$white;
+  background-color: v.$dark;
 }
 .ground {
-  color: #ffffff;
-  background-color: #a9714b;
+  color: v.$white;
+  background-color: v.$ground;
 }
 .poison {
-  color: #ffffff;
-  background-color: #a06cd5;
+  color: v.$white;
+  background-color: v.$poison;
 }
 .flying {
-  color: #333533;
-  background-color: #caf0f8;
+  color: v.$black;
+  background-color: v.$flying;
 }
