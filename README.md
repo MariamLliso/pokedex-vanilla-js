@@ -12,6 +12,7 @@
   - Muestra el nombre recibido
   - Muestra la imagen recibida
   - Muestra el componente Button
+  - Muestra el componente Badge tres veces, por tipo y por número
   - Dar al componente button el texto capturar
   - Dar al componente button la acción de abrir el detalle del pokemon
   - Cuando el usuario hace click al componente hace la acción recibida
@@ -23,8 +24,10 @@
   - Renderiza un título con el texto recibido dentro
 - NavbarComponent
   - Muestra un botón
-- Button
+- ButtonComponent
   - Renderiza un botón con un texto recibido dentro
   - Cuando el usuario haga click, llama a la función recibida
+- BadgeComponent
+  - Renderiza una insignia con el texto indicado
 - Component
   - Renderiza el nodo html que se le indica en el elemento padre indicado
