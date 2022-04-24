@@ -1,36 +1,51 @@
+import MyPokemonService from "../../services/MyPokemonsService/MyPokemonsService.js";
 import PokeAPIService from "../../services/PokeAPIService/PokeAPIService.js";
 import Component from "../Component/Component.js";
 import PokemonComponent from "../PokemonComponent/PokemonComponent.js";
+import { pokedex, myPokemon } from "../../constants/constants.js";
 
 class PokemonListComponent extends Component {
-  constructor(parentElement, elementType, className) {
+  page;
+
+  constructor(parentElement, elementType, className, page) {
     super(parentElement, elementType, className);
+    this.page = page;
 
     this.render();
   }
 
   async render() {
-    const pokemonAPIService = new PokeAPIService();
-    const { results } = await pokemonAPIService.getPokemonsPaginated(0);
-    const pokemonLightList = Promise.all(
-      results.map(async (pokemon) => {
-        const pokemonData = await pokemonAPIService.getPokemonByName(
-          pokemon.name
-        );
-        const pokemonTypes = pokemonData.types.map(({ type }) => type.name);
-        const pokemonLight = {
-          id: pokemonData.id,
-          name: pokemonData.name,
-          image: pokemonData.sprites.other.home.front_default,
-          types: pokemonTypes,
-        };
-        return pokemonLight;
-      })
-    );
+    if (this.page === pokedex) {
+      this.renderPokedex();
+    }
 
-    (await pokemonLightList).forEach((pokemon) => {
+    if (this.page === myPokemon) {
+      this.renderMyPokemons();
+    }
+  }
+
+  async renderPokedex() {
+    const pokemonAPIService = new PokeAPIService();
+    const pokemonLightList = await pokemonAPIService.getPokemonsLight();
+    pokemonLightList.forEach((pokemon) => {
       try {
-        new PokemonComponent(this.element, "li", "col", pokemon);
+        new PokemonComponent(this.element, "li", "col", pokemon, () => {
+          window.open("html/detail.html", "_self");
+        });
+      } catch (error) {
+        throw new Error("Could not render AppComponent header Pokédex");
+      }
+    });
+  }
+
+  async renderMyPokemons() {
+    const myPokemonService = new MyPokemonService();
+    const pokemonLightList = await myPokemonService.getPokemonsLight();
+    pokemonLightList.forEach((pokemon) => {
+      try {
+        new PokemonComponent(this.element, "li", "col", pokemon, () => {
+          window.open("html/detail.html", "_self");
+        });
       } catch (error) {
         throw new Error("Could not render AppComponent header Pokédex");
       }

@@ -1,13 +1,19 @@
-import BadgeComponent from "../BadgeComponent/BardgeComponent.js";
+import BadgeComponent from "../BadgeComponent/BadgeComponent.js";
+import ButtonComponent from "../ButtonComponent/ButtonComponent.js";
 import Component from "../Component/Component.js";
+import MyPokemonsService from "../../services/MyPokemonsService/MyPokemonsService.js";
 
 class PokemonComponent extends Component {
   pokemon;
+  action;
 
-  constructor(parentElement, elementType, className, pokemon) {
+  constructor(parentElement, elementType, className, pokemon, action) {
     super(parentElement, elementType, className);
     this.pokemon = pokemon;
+    this.action = action;
+
     this.render();
+    this.addListeners();
   }
 
   render() {
@@ -27,13 +33,15 @@ class PokemonComponent extends Component {
               alt="${this.pokemon.name}"
             />
             <h2 class="pokemon__title">${this.pokemon.name}</h2>
-            <button type="button" class="pokemon__button">
-              Catch this Pokémom
-            </button>
           </div>
         </div>
     `;
 
+    this.renderPokemonType();
+    this.renderCatchButton();
+  }
+
+  renderPokemonType() {
     const type = this.element.querySelector(".pokemon__type");
     if (this.pokemon.types.length === 1) {
       try {
@@ -66,6 +74,27 @@ class PokemonComponent extends Component {
         throw new Error("Couldn't render type badge");
       }
     }
+  }
+
+  async renderCatchButton() {
+    try {
+      new ButtonComponent(
+        this.element,
+        "Catch this Pokémom",
+        "pokemon__button",
+        async () => {
+          const myPokemonService = new MyPokemonsService();
+          await myPokemonService.postPokemons(this.pokemon.id);
+        }
+      );
+    } catch (error) {
+      throw new Error("Could not render catch pokemon button");
+    }
+  }
+
+  addListeners() {
+    const pokemonCard = this.element.querySelector(".pokemon");
+    pokemonCard.addEventListener("click", this.action);
   }
 }
 

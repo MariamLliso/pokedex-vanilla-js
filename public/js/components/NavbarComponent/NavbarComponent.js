@@ -1,6 +1,6 @@
 import ButtonComponent from "../ButtonComponent/ButtonComponent.js";
 import Component from "../Component/Component.js";
-import { pokedex, myPokemon } from "../../constants/constants.js";
+import { pokedex, myPokemon, detail } from "../../constants/constants.js";
 
 class NavbarComponent extends Component {
   page;
@@ -14,28 +14,58 @@ class NavbarComponent extends Component {
 
   render() {
     if (this.page === pokedex) {
-      try {
-        new ButtonComponent(
-          this.element,
-          "My Pokémons",
-          "navbar__button",
-          () => {
-            window.open("/my-pokemons.html", "_self");
-          }
-        );
-      } catch (error) {
-        throw new Error("Could not render HeaderComponent title");
-      }
+      this.renderPokedex();
     }
 
     if (this.page === myPokemon) {
-      try {
-        new ButtonComponent(this.element, "Pokédex", "navbar__button", () => {
+      this.renderMyPokemons();
+    }
+
+    if (this.page === detail) {
+      this.renderPokemonDetail();
+    }
+  }
+
+  renderPokedex() {
+    try {
+      new ButtonComponent(this.element, "My Pokémons", "navbar__button", () => {
+        window.open("html/my-pokemons.html", "_self");
+      });
+    } catch (error) {
+      throw new Error("Could not render HeaderComponent title");
+    }
+  }
+
+  renderMyPokemons() {
+    try {
+      new ButtonComponent(this.element, "Pokédex", "navbar__button", () => {
+        window.open("/index.html", "_self");
+      });
+    } catch (error) {
+      throw new Error("Could not render HeaderComponent title");
+    }
+  }
+
+  renderPokemonDetail() {
+    try {
+      new ButtonComponent(
+        this.element,
+        "Pokédex",
+        "navbar__button navbar__button--margin",
+        () => {
           window.open("/index.html", "_self");
-        });
-      } catch (error) {
-        throw new Error("Could not render HeaderComponent title");
-      }
+        }
+      );
+    } catch (error) {
+      throw new Error("Could not render HeaderComponent title");
+    }
+
+    try {
+      new ButtonComponent(this.element, "My Pokémons", "navbar__button", () => {
+        window.open("html/my-pokemons.html", "_self");
+      });
+    } catch (error) {
+      throw new Error("Could not render HeaderComponent title");
     }
   }
 }
