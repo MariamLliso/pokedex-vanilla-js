@@ -1,26 +1,23 @@
 import ButtonComponent from "../ButtonComponent/ButtonComponent.js";
 import Component from "../Component/Component.js";
+import PokemonListComponent from "../PokemonListComponent/PokemonListComponent.js";
 
 class PaginationComponent extends Component {
   totalPokemon;
   numberPokemonsAtPage;
-  actionPrevious;
-  actionNext;
+  page;
+  offset;
 
-  constructor(
-    parentElement,
-    totalPokemon,
-    numberPokemonsAtPage,
-    actionPrevious,
-    actionNext
-  ) {
+  constructor(parentElement, totalPokemon, numberPokemonsAtPage, page, offset) {
     super(parentElement, "nav", "pagination-navbar");
     this.totalPokemon = totalPokemon;
     this.numberPokemonsAtPage = numberPokemonsAtPage;
-    this.actionPrevious = actionPrevious;
-    this.actionNext = actionNext;
+    this.page = page;
+    this.offset = offset;
 
     this.render();
+    this.renderPrevious();
+    this.renderNext();
   }
 
   render() {
@@ -38,7 +35,9 @@ class PaginationComponent extends Component {
         </li>
       </ul>
     `;
+  }
 
+  reloadPreviousNextButtons() {
     this.renderPrevious();
     this.renderNext();
   }
@@ -50,7 +49,29 @@ class PaginationComponent extends Component {
         previus,
         "",
         "navbar__button navbar__button--pagination",
-        this.actionPrevious
+        () => {
+          const pokemonList = document.querySelector(".pokemon-list");
+          pokemonList.remove();
+
+          const list = document.querySelector(".list-container");
+
+          try {
+            new PokemonListComponent(
+              list,
+              "ul",
+              "pokemon-list row row-cols-1 row-cols-md-2 row-cols-xl-3 g-5 list-unstyled",
+              this.page,
+              (this.offset -= 12)
+            );
+          } catch (error) {
+            throw new Error(
+              "Could not render AppComponent PokemonList Pokédex"
+            );
+          }
+
+          this.render();
+          this.reloadPreviousNextButtons();
+        }
       );
       buttonPrevius.element.innerHTML = `<i class="fa-solid fa-angles-left"></i>`;
     } catch (error) {
@@ -64,7 +85,30 @@ class PaginationComponent extends Component {
       const buttonPrevius = new ButtonComponent(
         next,
         "",
-        "navbar__button navbar__button--pagination"
+        "navbar__button navbar__button--pagination",
+        () => {
+          const pokemonList = document.querySelector(".pokemon-list");
+          pokemonList.remove();
+
+          const list = document.querySelector(".list-container");
+
+          try {
+            new PokemonListComponent(
+              list,
+              "ul",
+              "pokemon-list row row-cols-1 row-cols-md-2 row-cols-xl-3 g-5 list-unstyled",
+              this.page,
+              (this.offset += 12)
+            );
+          } catch (error) {
+            throw new Error(
+              "Could not render AppComponent PokemonList Pokédex"
+            );
+          }
+
+          this.render();
+          this.reloadPreviousNextButtons();
+        }
       );
       buttonPrevius.element.innerHTML = `<i class="fa-solid fa-angles-right"></i>`;
     } catch (error) {
