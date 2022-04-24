@@ -29,7 +29,12 @@ class AppComponent extends Component {
 
   renderPokedex() {
     try {
-      new HeaderComponent(this.element, "header", "Pokédex", this.page);
+      new HeaderComponent(
+        this.element,
+        "header fixed-top",
+        "Pokédex",
+        this.page
+      );
     } catch (error) {
       throw new Error("Could not render AppComponent header Pokédex");
     }
@@ -48,7 +53,12 @@ class AppComponent extends Component {
 
   renderMyPokemons() {
     try {
-      new HeaderComponent(this.element, "header", "My Poképons", this.page);
+      new HeaderComponent(
+        this.element,
+        "header fixed-top",
+        "My Poképons",
+        this.page
+      );
     } catch (error) {
       throw new Error("Could not render AppComponent header My Pokémon");
     }
@@ -67,7 +77,12 @@ class AppComponent extends Component {
 
   renderPokemonDetail() {
     try {
-      new HeaderComponent(this.element, "header", "Pokémon info", this.page);
+      new HeaderComponent(
+        this.element,
+        "header fixed-top",
+        "Pokémon info",
+        this.page
+      );
     } catch (error) {
       throw new Error("Could not render AppComponent header detail");
     }

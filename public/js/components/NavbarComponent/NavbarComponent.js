@@ -53,7 +53,7 @@ class NavbarComponent extends Component {
         "Pokédex",
         "navbar__button navbar__button--margin",
         () => {
-          window.open("/index.html", "_self");
+          window.open("../index.html", "_self");
         }
       );
     } catch (error) {
@@ -62,7 +62,7 @@ class NavbarComponent extends Component {
 
     try {
       new ButtonComponent(this.element, "My Pokémons", "navbar__button", () => {
-        window.open("html/my-pokemons.html", "_self");
+        window.open("my-pokemons.html", "_self");
       });
     } catch (error) {
       throw new Error("Could not render HeaderComponent title");
