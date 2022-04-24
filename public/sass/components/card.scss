@@ -1,0 +1,147 @@
+.pokemon {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  background-color: white;
+  border-radius: 20px;
+
+  &__body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__image {
+    max-width: 200px;
+  }
+  &__stats {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+  }
+  &__type {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+  }
+
+  &__button {
+    border: none;
+    width: 80%;
+    padding: 10px 20px;
+    border-radius: 10px;
+    margin: 10px 0;
+    background-color: #e63946;
+    color: #ffffff;
+  }
+
+  &__button:active {
+    transform: translateY(2px);
+  }
+
+  &__stats {
+    margin-bottom: 30px;
+  }
+
+  &__position {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+  }
+
+  &__badge {
+    padding: 4px 15px;
+    text-transform: uppercase;
+    font-size: 0.7em;
+    letter-spacing: 0.2em;
+    font-weight: 700;
+    border-radius: 5px;
+  }
+
+  &__badge--margin-right {
+    margin-right: 20px;
+  }
+
+  &__title {
+    font-size: 2.5em;
+    margin: 30px 0;
+  }
+}
+
+.number {
+  color: #ffffff;
+  background-color: #495057;
+}
+
+.steel {
+  color: #ffffff;
+  background-color: #8d99ae;
+}
+.water {
+  color: #ffffff;
+  background-color: #0077b6;
+}
+.bug {
+  color: #333533;
+  background-color: #d9ed92;
+}
+.dragon {
+  color: #ffffff;
+  background-color: #3d3195;
+}
+.electric {
+  color: #333533;
+  background-color: #ffd100;
+}
+.ghost {
+  color: #ffffff;
+  background-color: #6247aa;
+}
+.fire {
+  color: #333533;
+  background-color: #f4a261;
+}
+.fairy {
+  color: #333533;
+  background-color: #f9bec7;
+}
+.ice {
+  color: #333533;
+  background-color: #90e0ef;
+}
+.fighting {
+  color: #ffffff;
+  background-color: #ce4257;
+}
+.normal {
+  color: #333533;
+  background-color: #e5e5e5;
+}
+.grass {
+  color: #ffffff;
+  background-color: #6a994e;
+}
+.psychic {
+  color: #ffffff;
+  background-color: #e05780;
+}
+.rock {
+  color: #333533;
+  background-color: #bfab67;
+}
+.dark {
+  color: #ffffff;
+  background-color: #54442b;
+}
+.ground {
+  color: #ffffff;
+  background-color: #a9714b;
+}
+.poison {
+  color: #ffffff;
+  background-color: #a06cd5;
+}
+.flying {
+  color: #333533;
+  background-color: #caf0f8;
+}

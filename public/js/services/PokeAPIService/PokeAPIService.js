@@ -5,7 +5,7 @@ class PokeAPIService {
     this.endpoint = "https://pokeapi.co/api/v2/pokemon/";
   }
 
-  async getPokemonsPaginated(offset, limit = 10) {
+  async getPokemonsPaginated(offset, limit = 12) {
     const response = await fetch(
       `${this.endpoint}?limit=${limit}&offset=${offset}`
     );
