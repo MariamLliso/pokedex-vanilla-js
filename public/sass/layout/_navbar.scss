@@ -3,7 +3,6 @@
 .navbar {
   &__button {
     text-transform: uppercase;
-    font-size: 0.7em;
     letter-spacing: 0.2em;
     font-weight: 700;
     border: none;
@@ -22,6 +21,18 @@
 
     &--margin {
       margin-right: 20px;
+    }
+
+    &--header {
+      font-size: 0.7em;
+    }
+
+    &--pagination {
+      font-size: 0.8em;
+    }
+
+    &--text {
+      cursor: default;
     }
   }
 

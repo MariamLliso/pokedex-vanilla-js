@@ -7,6 +7,9 @@
   - Almacena un listado de pokémons
   - Muestra tantos PokemonComponent como pokémons haya
   - Muestra una paginación
+  - Da a la paginación el total de los pokemons
+  - Da a la paginación los pokémons en la página
+  - Da a la paginación las acciones que deberán realizar sus botones
 - PokemonComponent
   - Muestra el la posición en la pokédex recibido
   - Muestra el nombre recibido
@@ -29,5 +32,8 @@
   - Cuando el usuario haga click, llama a la función recibida
 - BadgeComponent
   - Renderiza una insignia con el texto indicado
+- PaginationComponent
+  - Renderiza dos botones, uno para ir a la página de antes y otro para ir a la página de después
+  - Muestra el total de pokemons y el número de pokemons en la página
 - Component
   - Renderiza el nodo html que se le indica en el elemento padre indicado

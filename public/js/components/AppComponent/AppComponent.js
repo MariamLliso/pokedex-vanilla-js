@@ -56,7 +56,7 @@ class AppComponent extends Component {
       new HeaderComponent(
         this.element,
         "header fixed-top",
-        "My Poképons",
+        "My Pokémons",
         this.page
       );
     } catch (error) {
