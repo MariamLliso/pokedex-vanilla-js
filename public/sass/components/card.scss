@@ -29,10 +29,23 @@
     border: none;
     width: 80%;
     padding: 10px 20px;
-    border-radius: 10px;
     margin: 10px 0;
-    background-color: #e63946;
-    color: #ffffff;
+    background-image: linear-gradient(
+      to right,
+      #e53935 0%,
+      #e35d5b 51%,
+      #e53935 100%
+    );
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;
+    border-radius: 10px;
+  }
+
+  &__button:hover {
+    background-position: right center;
+    color: #fff;
+    text-decoration: none;
   }
 
   &__button:active {

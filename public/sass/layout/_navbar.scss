@@ -1,0 +1,31 @@
+.navbar {
+  &__button {
+    text-transform: uppercase;
+    font-size: 0.7em;
+    letter-spacing: 0.2em;
+    font-weight: 700;
+    border: none;
+    padding: 10px 20px;
+    margin: 10px 0;
+    background-image: linear-gradient(
+      to right,
+      #ffb75e 0%,
+      #fba31f 51%,
+      #ffb75e 100%
+    );
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;
+    border-radius: 10px;
+  }
+
+  &__button:hover {
+    background-position: right center;
+    color: #fff;
+    text-decoration: none;
+  }
+
+  &__button:active {
+    transform: translateY(2px);
+  }
+}

@@ -15,9 +15,14 @@ class NavbarComponent extends Component {
   render() {
     if (this.page === pokedex) {
       try {
-        new ButtonComponent(this.element, "My Pokémons", () => {
-          window.open("/my-pokemons.html", "_self");
-        });
+        new ButtonComponent(
+          this.element,
+          "My Pokémons",
+          "navbar__button",
+          () => {
+            window.open("/my-pokemons.html", "_self");
+          }
+        );
       } catch (error) {
         throw new Error("Could not render HeaderComponent title");
       }
@@ -25,7 +30,7 @@ class NavbarComponent extends Component {
 
     if (this.page === myPokemon) {
       try {
-        new ButtonComponent(this.element, "Pokédex", () => {
+        new ButtonComponent(this.element, "Pokédex", "navbar__button", () => {
           window.open("/index.html", "_self");
         });
       } catch (error) {
