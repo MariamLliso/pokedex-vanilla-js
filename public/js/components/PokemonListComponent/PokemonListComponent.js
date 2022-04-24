@@ -3,7 +3,6 @@ import PokeAPIService from "../../services/PokeAPIService/PokeAPIService.js";
 import Component from "../Component/Component.js";
 import PokemonComponent from "../PokemonComponent/PokemonComponent.js";
 import { pokedex, myPokemon } from "../../constants/constants.js";
-import PaginationComponent from "../PaginationComponent/PaginationComponent.js";
 
 class PokemonListComponent extends Component {
   page;
@@ -42,23 +41,6 @@ class PokemonListComponent extends Component {
         throw new Error("Could not render AppComponent header Pokédex");
       }
     });
-
-    const totalPokemon = await pokemonAPIService.count(this.offset);
-    const numberPokemonsAtPage = this.offset + 10;
-
-    const paginationContainer = document.createElement("div");
-    paginationContainer.className = "paginationContainer";
-    this.element.after(paginationContainer);
-
-    try {
-      new PaginationComponent(
-        paginationContainer,
-        totalPokemon,
-        numberPokemonsAtPage
-      );
-    } catch (error) {
-      throw new Error("Could not render AppComponent header Pokédex");
-    }
   }
 
   async renderMyPokemons() {
