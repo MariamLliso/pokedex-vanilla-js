@@ -44,7 +44,7 @@ class PokemonListComponent extends Component {
     pokemonLightList.forEach((pokemon) => {
       try {
         new PokemonComponent(this.element, "li", "col", pokemon, () => {
-          window.open("html/detail.html", "_self");
+          window.open("detail.html", "_self");
         });
       } catch (error) {
         throw new Error("Could not render AppComponent header Pokédex");
