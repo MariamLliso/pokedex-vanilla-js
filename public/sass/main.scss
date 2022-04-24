@@ -1,4 +1,4 @@
-@use "abstracts/variables";
+@use "abstracts/variables" as v;
 
 @use "layout/header";
 @use "layout/navbar";
@@ -15,37 +15,5 @@
 
 body {
   font-family: "Nunito", sans-serif;
-  background-color: #ececec;
-}
-
-.pokemon-card {
-  display: flex;
-  flex-direction: column;
-}
-.pokemon-card__header {
-  display: flex;
-  justify-content: flex-end;
-}
-.pokemon-card__body {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-.pokemon-card__image {
-  max-width: 200px;
-}
-
-.pokemon-card__stats {
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-}
-
-.pokemon-card__stats-type {
-  display: flex;
-  justify-content: flex-end;
-}
-
-.pokemon-card__stats-type--first {
-  margin-left: 20px;
+  background-color: v.$grey-light;
 }

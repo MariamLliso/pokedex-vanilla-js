@@ -1,3 +1,5 @@
+@use "../abstracts/variables" as v;
+
 .navbar {
   &__button {
     text-transform: uppercase;
@@ -15,13 +17,17 @@
     );
     transition: 0.5s;
     background-size: 200% auto;
-    color: white;
+    color: v.$white;
     border-radius: 10px;
+
+    &--margin {
+      margin-right: 20px;
+    }
   }
 
   &__button:hover {
     background-position: right center;
-    color: #fff;
+    color: v.$white;
     text-decoration: none;
   }
 
