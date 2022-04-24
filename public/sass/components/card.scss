@@ -29,7 +29,7 @@
 
   &__button {
     border: none;
-    width: 100%;
+    width: 80%;
     padding: 10px 20px;
     margin: 10px 0;
     background-image: linear-gradient(
@@ -41,7 +41,7 @@
     transition: 0.5s;
     background-size: 200% auto;
     color: white;
-    border-radius: 20px;
+    border-radius: 10px;
   }
 
   &__button:hover {
