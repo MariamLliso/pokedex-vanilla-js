@@ -28,9 +28,14 @@ class NavbarComponent extends Component {
 
   renderPokedex() {
     try {
-      new ButtonComponent(this.element, "My Pokémons", "navbar__button", () => {
-        window.open("html/my-pokemons.html", "_self");
-      });
+      new ButtonComponent(
+        this.element,
+        "My Pokémons",
+        "navbar__button navbar__button--header",
+        () => {
+          window.open("html/my-pokemons.html", "_self");
+        }
+      );
     } catch (error) {
       throw new Error("Could not render HeaderComponent title");
     }
@@ -38,9 +43,14 @@ class NavbarComponent extends Component {
 
   renderMyPokemons() {
     try {
-      new ButtonComponent(this.element, "Pokédex", "navbar__button", () => {
-        window.open("/index.html", "_self");
-      });
+      new ButtonComponent(
+        this.element,
+        "Pokédex",
+        "navbar__button navbar__button--header",
+        () => {
+          window.open("/index.html", "_self");
+        }
+      );
     } catch (error) {
       throw new Error("Could not render HeaderComponent title");
     }
@@ -51,7 +61,7 @@ class NavbarComponent extends Component {
       new ButtonComponent(
         this.element,
         "Pokédex",
-        "navbar__button navbar__button--margin",
+        "navbar__button navbar__button--margin navbar__button--header",
         () => {
           window.open("../index.html", "_self");
         }
@@ -61,9 +71,14 @@ class NavbarComponent extends Component {
     }
 
     try {
-      new ButtonComponent(this.element, "My Pokémons", "navbar__button", () => {
-        window.open("my-pokemons.html", "_self");
-      });
+      new ButtonComponent(
+        this.element,
+        "My Pokémons",
+        "navbar__button navbar__button--header",
+        () => {
+          window.open("my-pokemons.html", "_self");
+        }
+      );
     } catch (error) {
       throw new Error("Could not render HeaderComponent title");
     }

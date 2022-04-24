@@ -25,8 +25,8 @@ class PokeAPIService {
     return data;
   }
 
-  async getPokemonsLight() {
-    const { results } = await this.getPokemonsPaginated(0);
+  async getPokemonsLight(offset) {
+    const { results } = await this.getPokemonsPaginated(offset);
     const pokemonLightList = Promise.all(
       results.map(async (pokemon) => {
         const pokemonData = await this.getPokemonByName(pokemon.name);
@@ -42,6 +42,11 @@ class PokeAPIService {
     );
 
     return pokemonLightList;
+  }
+
+  async count(offset) {
+    const { count } = await this.getPokemonsPaginated(offset);
+    return count;
   }
 }
 
