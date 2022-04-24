@@ -1,9 +1,9 @@
-@use "abstracts/variables" as v;
-
 @use "layout/header";
 @use "layout/navbar";
 
 @use "components/card";
+
+@use "abstracts/variables" as v;
 
 @import "../../node_modules/bootstrap/scss/bootstrap.scss";
 
@@ -20,4 +20,9 @@ body {
 
 .pokemon-list {
   margin-top: 120px;
+}
+
+.pagination-navbar {
+  margin-top: 200px;
+  font-size: 1em;
 }
