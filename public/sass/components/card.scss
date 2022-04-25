@@ -83,6 +83,55 @@
   }
 }
 
+.pokemon-detail {
+  display: flex;
+  flex-direction: row;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 20px;
+  align-items: center;
+
+  &__image {
+    max-width: 220px;
+  }
+
+  &__body {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+
+  &__stats {
+    display: flex;
+    flex-direction: row;
+  }
+  &__title {
+    font-size: 3em;
+    margin-bottom: 30px;
+    margin-right: 20px;
+  }
+
+  &__position {
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 10px;
+  }
+  &__type {
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 10px;
+  }
+
+  &__hw {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+  &__abilitys {
+    width: 100%;
+  }
+}
+
 .number {
   color: v.$white;
   background-color: v.$number;
