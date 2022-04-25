@@ -4,15 +4,18 @@ import PaginationComponent from "../PaginationComponent/PaginationComponent.js";
 import { pokedex, myPokemon, detail } from "../../constants/constants.js";
 import PokemonListComponent from "../PokemonListComponent/PokemonListComponent.js";
 import PokeAPIService from "../../services/PokeAPIService/PokeAPIService.js";
+import PokemonDetailComponent from "../PokemonDetailComponent/PokemonDetailComponent.js";
 
 class AppComponent extends Component {
   page;
   offset;
+  id;
 
-  constructor(parentElement, elementType, className, page, offset) {
+  constructor(parentElement, elementType, className, page, offset, id) {
     super(parentElement, elementType, className);
     this.offset = offset;
     this.page = page;
+    this.id = id;
 
     this.render();
   }
@@ -105,7 +108,7 @@ class AppComponent extends Component {
     }
   }
 
-  renderPokemonDetail() {
+  async renderPokemonDetail() {
     try {
       new HeaderComponent(
         this.element,
@@ -115,6 +118,16 @@ class AppComponent extends Component {
       );
     } catch (error) {
       throw new Error("Could not render AppComponent header detail");
+    }
+
+    const pokemonAPIService = new PokeAPIService();
+    const pokemon = await pokemonAPIService.getPokemonById(this.id);
+    const list = document.querySelector(".list-container");
+
+    try {
+      new PokemonDetailComponent(list, "section", "", pokemon);
+    } catch (error) {
+      throw new Error("Could not render PokemonDetailComponent");
     }
   }
 }
