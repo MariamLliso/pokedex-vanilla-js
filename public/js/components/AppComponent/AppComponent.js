@@ -18,6 +18,8 @@ class AppComponent extends Component {
   }
 
   render() {
+    this.createListContainer();
+
     if (this.page === pokedex) {
       this.renderPokedex();
     }
@@ -29,6 +31,12 @@ class AppComponent extends Component {
     if (this.page === detail) {
       this.renderPokemonDetail();
     }
+  }
+
+  createListContainer() {
+    const list = document.createElement("div");
+    list.className = "list-container";
+    this.element.append(list);
   }
 
   async renderPokedex() {
@@ -45,10 +53,7 @@ class AppComponent extends Component {
       throw new Error("Could not render AppComponent header Pokédex");
     }
 
-    const list = document.createElement("div");
-    list.className = "list-container";
-    this.element.append(list);
-
+    const list = document.querySelector(".list-container");
     try {
       new PokemonListComponent(
         list,
